@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InicioComponent } from './inicio/inicio.component';
 
 export const routes: Routes = [
-  { path: 'inicio', component: InicioComponent }, // Ruta principal
-  { path: '', component: InicioComponent }, //Cuando la ruta viene vacia
 
+
+   {
+    path:'inicio',
+    loadChildren:()=>import('./inicio/inicio.module').then(m=>m.InicioModule)
+   }
+   ,
+   {
+    path:'',
+    loadChildren:()=>import('./inicio/inicio.module').then(m=>m.InicioModule)
+   }
 ];
 
 @NgModule({
